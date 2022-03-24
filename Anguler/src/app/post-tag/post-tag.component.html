@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <div>
+      {{TagName}}
+    </div>
+    <div class="row" *ngFor="let post of posts | async">
+      <div>
+        <h3><a href="post/{{post.id}}">{{post.title}}</a></h3>
+        <div>
+          Author: <p>{{post.username}}</p>
+        </div>
+        <div>
+          Last update: {{post.updateOn}}
+        </div>
+        <div *ngFor="let tag of post.tag">
+          {{tag}}
+        </div>
+        <div>
+          <a type="button" href="post/{{post.id}}">Read More</a>
+        </div>
+        <hr>
+      </div>
+      <button (click)="deletePost(post.id)" *ngIf="RightToDelete(post)">delete</button>
+    </div>
+  </div>
+</div>

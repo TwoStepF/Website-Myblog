@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+}
+#NeedUseDots{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+#caption{
+    font-size: 64px;
+    font-family: inter;
+    margin-left: 8%;
+    color: #FFFFFF;
+    margin-top: 50px;
+    font-weight: bolder
+}
+#ad{
+    text-align:center;
+    margin-top: 105px;
+    min-height: 254px;
+    z-index: 1
+}
+#NewPost{
+    margin: 27px 0 0 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    text-align:center;
+    z-index: 1;
+    background-color: #EFEFEF
+}
+#s{
+    margin-left: 50px;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    display: none;
+}
+.nav_mobile{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: #F6F6F6;
+    z-index: 2;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all linear 0.2s;
+}
+#icon{
+    font-size: 40px;
+    position: absolute;
+    top: 15px;
+    left: 5%;
+    display: none;
+}
+#cancel{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+.inputC:checked ~ .overlay{
+    display: block;
+}
+.inputC:checked ~ .nav_mobile{
+    transform: none;
+    opacity: 1;
+}
+#mobile{
+    text-align: left;
+    display: none;
+}
+@media only screen and (min-width: 1024px){
+}
+
+@media only screen and (max-width: 800px) {
+    #Pic{
+        display: none;
+    }
+    #caption{
+        font-size: 55px;
+    }
+    #email{
+        text-align: center;
+    }
+    #icon{
+        display: block;
+    }
+    #header{
+        display: none;
+    }
+}
+@media only screen and (max-width: 600px){
+    #ad{
+        display: none;
+    }
+    #NewPost{
+        margin-top: 100px;
+    }
+    #s{
+        margin: 0;
+    }
+    #pc{
+        display: none;
+    }
+    #mobile{
+        display: inline-block;
+    }
+}

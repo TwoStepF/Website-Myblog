@@ -1,0 +1,47 @@
+<H3 routerLink="">SpringBlog</H3>
+<button type="button" routerLink="" style="margin-right: 20px">
+    Home
+</button>
+<button type="button" routerLink="auth/login" style="margin-right: 20px"
+        *ngIf="!authService.isAuth()">
+    Login
+</button>
+<button type="button" routerLink="auth/register" style="margin-right: 20px"
+        *ngIf="!authService.isAuth()">
+    Register
+</button>
+<a type="button" routerLink="user/post" style="margin-right: 20px; color: darkviolet"
+        *ngIf="authService.isAuth()">
+    {{username}}
+</a>
+<button type="button" routerLink="addpost" style="margin-right: 20px"
+        *ngIf="authService.isAuth() && !authService.isRole('ROLE_USER')">
+    Add post
+</button>
+<button type="button" routerLink="manage" style="margin-right: 20px"
+        *ngIf="authService.isRole('ROLE_SAD') || authService.isRole('ROLE_ADMIN')">
+    Manage
+</button>
+<button type="button" (click)="OnLogOut()" style="margin-right: 20px"
+        *ngIf="authService.isAuth()">
+    Log out
+</button>
+<div>
+  <label for="search-box">User Search</label>
+  <input type="text" id="search-box" [(ngModel)]="Key"/>
+  <button routerLink="search/{{Key}}" (click)="Key = ''">Seach</button>
+</div>
+<div *ngFor="let tag of tags | async">
+  <button routerLink="tag/{{tag.tagId}}" (click)="localStorage.store('tagname', tag.tagName)">{{tag.tagName}}</button>
+</div>
+<div>
+  <div style="color: red">Popular</div>
+  <div *ngFor="let post of posts | async">
+    <a routerLink="post/{{post.id}}">{{post.title}}</a>
+  </div>
+</div>
+<div style="margin: 30px 30px 30px 30px">
+    <router-outlet>
+    </router-outlet>
+</div>
+

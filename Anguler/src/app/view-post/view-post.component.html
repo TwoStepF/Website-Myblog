@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <div>
+      <div>
+        <h1>{{post.title}}</h1>
+        <span>
+                  <p>by {{post.username}}</p>
+                  <p>{{post.roleUser}}</p>
+                  <p>{{post.view}}</p>
+        </span>
+        <p-editor [(ngModel)]="post.content" [readonly]="true" >
+          <ng-template pTemplate="header">
+            <div>Last update: {{post.updateOn}}</div>
+          </ng-template>
+        </p-editor>
+        <p>Tag: </p>
+        <div *ngFor="let tag of post.tag">
+          {{tag}}
+        </div>
+      </div>
+      <div>
+        <button *ngIf="bool" routerLink="/addpost" (click)="getUpdatePost()">Cập nhật</button>
+      </div>
+    </div>
+  </div>
+</div>

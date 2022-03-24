@@ -1,0 +1,29 @@
+<div>
+  <div>
+    <div>
+      <h3>Create New Post</h3>
+    </div>
+    <hr>
+    <form #heroForm="ngForm">
+      <div>
+        <label class="post-title">Title</label>
+        <input type="text" class="form-control"
+               [(ngModel)]="Infor.title" name="title">
+      </div>
+      <div>
+        <label class="post-content">Body</label>
+        <p-editor [(ngModel)]="Infor.content" name="content"></p-editor>
+      </div>
+      <div *ngFor="let tag of tags | async; let i = index">
+        <p-checkbox name="tag" value="{{tag.tagName}}" [(ngModel)]="Infor.tag"></p-checkbox>
+        <label>{{tag.tagName}}</label>
+      </div>
+      <div>
+        <button type="submit" (click)="OnSubmit()" *ngIf="!bool">Post</button>
+      </div>
+      <div>
+        <button type="submit" (click)="OnUpdate()" *ngIf="bool">Lưu</button>
+      </div>
+    </form>
+  </div>
+</div>
